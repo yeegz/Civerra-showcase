@@ -4,7 +4,7 @@
 
 **Demo video (2:48):** [media/CIVERRA_demo.mp4](media/CIVERRA_demo.mp4) · **Pitch deck (8 slides):** [media/CIVERRA_pitch.pdf](media/CIVERRA_pitch.pdf)
 
-Built on 15 Nov 2026 for the STC Mini Hackathon. This public repo is the showcase; the source is in a private repo.
+Built on 15 Nov 2026 for the STC Mini Hackathon. **Source code:** https://github.com/yeegz/Civerra
 
 > MyDIMS tells you where the disaster is. CIVERRA tells you what to do next, in your own home.
 
@@ -57,13 +57,13 @@ It covers floods, storms, landslides, house fires (once out), haze, limited eart
 - **Reading the message:** an on-device parser turns text into facts from a fixed list. Nothing personal leaves the phone.
 - **The plan:** 31 fixed cards, each citing its source (TNB, KKM, JPN, NADMA/MyIBJKM, PIAM, PDRM, MyCERT, WHO, DOE, CDC and others), are selected and ordered from the facts.
 - **Live data:** data.gov.my feeds for MET Malaysia warnings and JPS river stations; OpenStreetMap for places and walking routes.
-- **Tests:** 49 automated tests, including 2,032 hazard, place and household combinations where every step must point at something drawn. A script walks all eight example scenarios to the end in a real browser.
+- **Tests:** 53 automated tests, including 2,032 hazard, place and household combinations where every step must point at something drawn. A script walks all eight example scenarios to the end in a real browser.
 - **Server (optional):** a small API that adds an AI reader and photo scan. It can only choose facts from the fixed list and never writes advice.
 
 ## Honest status
 
 - **Working today:** everything in the table above, on the live link, on desktop and phone.
-- **Built but switched off:** the server AI reader and photo scan. The app reads messages on the device instead.
+- **AI reader:** on. Messages are read on the device first, then by a server model that can only pick facts from a fixed list. IDs are removed and nothing is stored.
 - **Not done:** recovery steps in Bahasa Melayu (MET warnings can be read in MET's own Malay text); testing with real users; push notifications when the app is closed.
 
 ## Safety
