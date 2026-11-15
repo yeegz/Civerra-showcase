@@ -1,50 +1,81 @@
 # CIVERRA: after the disaster, see what to do next
 
-**Try it (no login):** https://civerra-yeegz.web.app
+**Try it now, no login:** https://civerra-yeegz.web.app
 
-Built in one day for the STC Mini Hackathon (15 Nov 2026). This public repo shows the product; the source is private.
+**Demo video (2:48):** [media/CIVERRA_demo.mp4](media/CIVERRA_demo.mp4) · **Pitch deck (8 slides):** [media/CIVERRA_pitch.pdf](media/CIVERRA_pitch.pdf)
 
-CIVERRA is a post-disaster recovery guide for Malaysian households. You tell it what happened in your own words, or add a photo. It builds an illustration of your situation from reusable building blocks and walks you through official, source-labelled steps one at a time. When MET Malaysia or JPS publish a warning that affects you, your plan and picture update and it tells you why.
+Built on 15 Nov 2026 for the STC Mini Hackathon. This public repo is the showcase; the source is in a private repo.
 
 > MyDIMS tells you where the disaster is. CIVERRA tells you what to do next, in your own home.
 
-| Chat start | Lesson step | Done |
-|---|---|---|
-| ![](screens/02-chat-understood.png) | ![](screens/03-lesson-step1.png) | ![](screens/05-lesson-feedback.png) |
+![A recovery step, shown in a picture of the home](media/lesson.gif)
 
-| Dashboard | Scene tour | Map |
-|---|---|---|
-| ![](screens/06-dashboard.png) | ![](screens/09-tour-step.png) | ![](screens/10-map.png) |
+## What it is
 
-| Updates | Be aware | Report |
-|---|---|---|
-| ![](screens/11-updates.png) | ![](screens/12-aware.png) | ![](screens/13-report.png) |
+CIVERRA is a recovery guide for Malaysian households, for the hours and days **after** a disaster. You say what happened in your own words. It works out the facts, draws a picture of your situation, and walks you through sourced recovery steps one at a time. When MET Malaysia or JPS issue a warning that affects you, the plan changes and it tells you what changed and why.
 
-| Phone: chat | Phone: lesson | Phone: dashboard |
-|---|---|---|
-| ![](screens/21-phone-understood.png) | ![](screens/22-phone-lesson.png) | ![](screens/23-phone-dashboard.png) |
+It covers floods, storms, landslides, house fires (once out), haze, limited earthquake aftermath, and recovery after an online scam or account takeover.
 
-## What's in it (honest status)
-- **Works today:** chat with on-device reading (English + basic Malay); danger gate to 999; 26 human-written steps with sources (TNB, KKM, JPN, NADMA/MyIBJKM, WHO, DOE, PIAM, CDC, USFA); flood, storm, landslide, fire aftermath, haze and limited earthquake; four illustrated places; animated instruction graphics; lesson mode; scene tour; live MET warnings and JPS river levels; map with walking routes and today's relief centres; recovery report; one-shot location share. 36 automated tests, including every hazard × place combination.
-- **Built but switched off:** a server that adds an AI reader and photo scan. Both can only pick from a fixed list of facts and never write advice.
-- **Not done:** testing with real users; reviewed Malay translations; offline app mode.
+## Try it in two minutes
+
+1. Open https://civerra-yeegz.web.app and tap **Flood at home** (or type your own message).
+2. Tap **Build my scene** and go through a couple of steps.
+3. Close the step view and look at **My day**, **Map**, **Updates** and **Report**.
+4. Go back to the start (tap the logo) and try **Online scam** for a different kind of recovery.
+
+## What it does
+
+| | |
+|---|---|
+| **Your own words** | A message, read on the device, becomes a list of facts. Words like "trapped" or "sparks" go to the 999 screen first. |
+| **One step at a time** | Each step shows the object in a picture of your home, a three-part how-to, numbered instructions, what not to do, and its source. |
+| **Live updates** | MET Malaysia warnings and JPS river levels are checked every 5 minutes. A serious warning sounds an alert and re-builds the plan. |
+| **Check-ins** | It asks if you're okay, more often while a safety step is open. "I need help" opens the 999 sheet. "I'm safe" goes to family through your own share sheet. |
+| **Map** | Places for your situation (clinic, pharmacy, possible relief centre) with a walking route. Live location is opt-in and stays on the device. |
+| **Report** | Losses, what's done and what's open, for JKM, an insurer or family. |
+| **Set up once** | Your state and household, kept on the device, so the next case starts ready. |
+
+![Check-ins and the scam recovery plan on a phone](media/phone.gif)
+
+## Screens
+
+| Tell it what happened | A recovery step | The next step and your home |
+|---|---|---|
+| ![](screens/02-chat-understood.png) | ![](screens/03-lesson-step1.png) | ![](screens/06-dashboard.png) |
+
+| My day | Map | Updates |
+|---|---|---|
+| ![](screens/15-myday.png) | ![](screens/10-map.png) | ![](screens/11-updates.png) |
+
+| Phone: steps | Phone: check-in | Phone: live location | Phone: my list |
+|---|---|---|---|
+| ![](screens/25-phone-steps.png) | ![](screens/24-phone-checkin-chat.png) | ![](screens/location.png) | ![](screens/todo.png) |
+
+## How it was built
+
+- **Front end:** React and TypeScript (Vite), hosted on Firebase Hosting. The scenes are hand-built SVG parts, not generated images.
+- **Reading the message:** an on-device parser turns text into facts from a fixed list. Nothing personal leaves the phone.
+- **The plan:** 31 fixed cards, each citing its source (TNB, KKM, JPN, NADMA/MyIBJKM, PIAM, PDRM, MyCERT, WHO, DOE, CDC and others), are selected and ordered from the facts.
+- **Live data:** data.gov.my feeds for MET Malaysia warnings and JPS river stations; OpenStreetMap for places and walking routes.
+- **Tests:** 49 automated tests, including 2,032 hazard, place and household combinations where every step must point at something drawn. A script walks all eight example scenarios to the end in a real browser.
+- **Server (optional):** a small API that adds an AI reader and photo scan. It can only choose facts from the fixed list and never writes advice.
+
+## Honest status
+
+- **Working today:** everything in the table above, on the live link, on desktop and phone.
+- **Built but switched off:** the server AI reader and photo scan. The app reads messages on the device instead.
+- **Not done:** recovery steps in Bahasa Melayu (MET warnings can be read in MET's own Malay text); testing with real users; push notifications when the app is closed.
 
 ## Safety
-No accounts and no server storage. ID and phone numbers are stripped. Danger always goes to 999 first. Pictures are illustrations, not your home. CIVERRA does not replace emergency services, doctors, electricians or engineers, and doesn't decide aid.
 
-Screenshots were taken from the live site with headless Chrome. MIT licence for this showcase.
+No accounts and nothing stored on a server. IC numbers, phone numbers and emails are stripped from messages. Danger goes to 999 first. Pictures are illustrations, not your home. CIVERRA does not replace emergency services, doctors, electricians or engineers, and it doesn't decide aid.
 
-## Added on 15 Nov 2026 (afternoon)
+## Team
 
-Check-ins that run by themselves, opt-in live location, a list seeded from your situation, a one-time set-up, recovery after an online scam (997, Cyber999, Semak Mule), and a simpler steps page.
-
-| My day | Check-in | Live location | My list |
-|---|---|---|---|
-| ![](screens/15-myday.png) | ![](screens/24-phone-checkin-chat.png) | ![](screens/location.png) | ![](screens/todo.png) |
-
-| Steps on a phone | Map on a phone |
+| Who | Role |
 |---|---|
-| ![](screens/25-phone-steps.png) | ![](screens/26-phone-map.png) |
+| Yousof | Coding and design |
+| Salli | Slides, research and testing |
+| Dana | Research and testing |
 
-Status, honestly: the server-side AI reader is not deployed (the app reads messages on the device), translated step cards are not done (official MET warnings can be read in the issuer's own Bahasa Melayu), and it has not been tested with real users yet.
-
+Screenshots and the video were recorded from the live site. MIT licence for this showcase.
