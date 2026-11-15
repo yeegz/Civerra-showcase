@@ -33,3 +33,18 @@ CIVERRA is a post-disaster recovery guide for Malaysian households. You tell it 
 No accounts and no server storage. ID and phone numbers are stripped. Danger always goes to 999 first. Pictures are illustrations, not your home. CIVERRA does not replace emergency services, doctors, electricians or engineers, and doesn't decide aid.
 
 Screenshots were taken from the live site with headless Chrome. MIT licence for this showcase.
+
+## Added on 15 Nov 2026 (afternoon)
+
+Check-ins that run by themselves, opt-in live location, a list seeded from your situation, a one-time set-up, recovery after an online scam (997, Cyber999, Semak Mule), and a simpler steps page.
+
+| My day | Check-in | Live location | My list |
+|---|---|---|---|
+| ![](screens/15-myday.png) | ![](screens/24-phone-checkin-chat.png) | ![](screens/location.png) | ![](screens/todo.png) |
+
+| Steps on a phone | Map on a phone |
+|---|---|
+| ![](screens/25-phone-steps.png) | ![](screens/26-phone-map.png) |
+
+Status, honestly: the server-side AI reader is not deployed (the app reads messages on the device), translated step cards are not done (official MET warnings can be read in the issuer's own Bahasa Melayu), and it has not been tested with real users yet.
+
