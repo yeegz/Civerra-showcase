@@ -4,7 +4,7 @@
 
 **Demo video (2:48):** [media/CIVERRA_demo.mp4](media/CIVERRA_demo.mp4) · **Pitch deck (8 slides):** [media/CIVERRA_pitch.pdf](media/CIVERRA_pitch.pdf)
 
-Built on 15 Nov 2026 at the Sunway Tech Club × Kiro Hackathon (theme: Disaster Recovery) by Yousof Selim, Dana Matyakubova and Selbinyyaz Odekova. Finalist, first team to pitch. The source code is private; this repository holds the screens, demo and deck.
+Built on Sunday 15 Nov 2026 at the STC Mini Hackathon 2026, run by Sunway Tech Club and sponsored by Kiro, by Yousof Selim, Dana Matyakubova and Selbinyyaz Odekova. Theme (spun on the day): Disaster Recovery. One of 7 finalists, first team to pitch. The source code is private; this repository holds the screens, demo and deck.
 
 > MyDIMS tells you where the disaster is. CIVERRA tells you what to do next, in your own home.
 
